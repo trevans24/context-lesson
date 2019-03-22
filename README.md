@@ -264,6 +264,8 @@ So every time you need to wrap a few components now you don't need to add a `div
 Think of that DOM Tree with a ton of them wrapping components
 ![too many divs](http://i.imgur.com/SFkki0O.png)
 
+More about it here: [Fragments](https://reactjs.org/docs/fragments.html)
+
 ### Accessing Multiple Contexts
 You can use data from multiple Contexts in the following manner
 ```js
