@@ -111,24 +111,22 @@ import React, { Component, createContext } from 'react';
 export const ThemeContext = createContext();
 
 export default ThemeProvider extends Component {
-	state = {
-		colors: ['black', 'blue', 'green', 'rebeccapurple', 'red', 'whitesmoke'],
-		color: ''
-	}
+  state = {
+    colors: ['black', 'blue', 'green', 'rebeccapurple', 'red', 'whitesmoke'],
+    color: ''
+  }
 
-	changeColor = (color) => {
-		this.setState({
-			color
-		})
-	}
+  changeColor = (color) => {
+    this.setState({color})
+  }
 
-	render() {
-		return (
-			<ThemeContext.Provider value={{ theme: this.state, changeColor: this.changeColor }} >
-				{this.props.children}
-			</ThemeContext.Provider>
-		)
-	}
+  render() {
+    return (
+      <ThemeContext.Provider value={{ theme: this.state, changeColor: this.changeColor }}>
+        {this.props.children}
+      </ThemeContext.Provider>
+    )
+  }
 }
 ```
 
@@ -142,9 +140,9 @@ import App from './App';
 import { ThemeProvider } from './context/ThemeContext';
 
 ReactDOM.render(
-	<ThemeProvider>
-      <App />
-    </ThemeProvider>
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
   , document.getElementById('root'));
 
 ```
