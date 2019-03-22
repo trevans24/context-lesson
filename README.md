@@ -221,7 +221,7 @@ export default class ColorPane extends Component {
     let newColorIndex = Math.ceil(Math.random()*5);
     this.props.changeColor(this.props.colors[newColorIndex])
   }
-  
+
   render() {
     return (
       <div style={style}>
@@ -262,9 +262,9 @@ import { ThemeConsumer } from './context/ThemeContext';
 ...
 return (
   <ThemeConsumer>
-  {({ theme: { color, colors }, changeColor }) => (
-    <ColorPane color={color} colors={colors} changeColor={changeColor} />
-  )}
+    {({ theme: { color, colors }, changeColor }) => (
+      <ColorPane color={color} colors={colors} changeColor={changeColor} />
+    )}
   </ThemeConsumer>
 )
 ```
