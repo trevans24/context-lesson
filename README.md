@@ -87,7 +87,7 @@ export default ThemeProvider extends Component {
   }
 
   changeColor = (color) => {
-    this.setState({color})
+    this.setState({...this.state, color})
   }
 
   render() {
@@ -117,7 +117,7 @@ export default ThemeProvider extends Component {
   }
 
   changeColor = (color) => {
-    this.setState({color})
+    this.setState({...this.state, color})
   }
 
   render() {
