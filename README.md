@@ -266,9 +266,9 @@ import { ThemeConsumer } from './context/ThemeContext';
 ...
 return (
 	<ThemeConsumer>
-	{({ theme: { color, colors }, changeColor }) => (
-    <ColorPane color={color} colors={colors} changeColor={changeColor} />
-  )}
+  	{({ theme: { color, colors }, changeColor }) => (
+      <ColorPane color={color} colors={colors} changeColor={changeColor} />
+    )}
   </ThemeConsumer>
 )
 ```
@@ -290,18 +290,18 @@ export function ColorPane() {
   const { theme: { color, colors }, changeColor } = useContext(ThemeContext);
 
   //vs object destructuring
-	let style = {
+  let style = {
     background: color, // We can access data in the this.context object
     height: "200px",
     width: "200px"
   }
 
-    // Using the Context function
-    function setColor() {
-    	// randomize the colors
-    	let newColorIndex = Math.ceil(Math.random()*5);
-    	changeColor(colors[newColorIndex])
-    }
+  // Using the Context function
+  function setColor() {
+  	// randomize the colors
+  	let newColorIndex = Math.ceil(Math.random()*5);
+  	changeColor(colors[newColorIndex])
+  }
 
   return (
 
