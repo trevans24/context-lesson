@@ -87,20 +87,18 @@ export default ThemeProvider extends Component {
   }
 
   changeColor = (color) => {
-		this.setState({
-			color
-		})
-	}
-  
+    this.setState({color})
+  }
+
   render() {
-		return (
-			// When creating the Provider you must return a value
-			// this allows you to access the Context State
-			<ThemeContext.Provider value={{ theme: this.state, changeColor: this.changeColor }} >
-				// When you wrap your component (App)
-				// this way the children can access the state
-				{this.props.children}
-			</ThemeContext.Provider>
+    return (
+      // When creating the Provider you must return a value
+      // this allows you to access the Context State
+      <ThemeContext.Provider value={{ theme: this.state, changeColor: this.changeColor }} >
+      // When you wrap your component (App)
+      // this way the children can access the state
+        {this.props.children}
+      </ThemeContext.Provider>
 		)
 	}
 }
