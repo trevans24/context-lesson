@@ -232,6 +232,38 @@ export default class ColorPane extends Component {
 }
 ```
 
+### Multiple Components Using same Context
+You can have multiple components use the same Context.
+You can only return one component per Consumer, so the work around is to use the Fragment from React
+```js
+import React, { Fragment } from 'react';
+
+// Please use Fragment and not <></>
+// Imagine looking at all of the components using Fragment
+// Now imagine not knowing how many are being used
+// I know we like to do as little as possible, but this makes easier reading
+...
+
+return (
+  <ThemeConsumer>
+    {({ theme: { color, colors }, changeColor }) => (
+      <Fragment>
+        <ColorPane color={color} colors={colors} changeColor={changeColor} />
+        <ColorComponent colors={colors} />
+        <ColorChanger changeColor={changeColor} />
+      </Fragment>
+    )}
+  </ThemeConsumer>
+)
+```
+
+#### What is Fragment?
+Fragment is a component wrapper that allows you to combine components without adding a `div` to the DOM.
+So every time you need to wrap a few components now you don't need to add a `div`.
+
+Think of that DOM Tree with a ton of them wrapping components
+![too many divs](http://i.imgur.com/SFkki0O.png)
+
 ### Accessing Multiple Contexts
 You can use data from multiple Contexts in the following manner
 ```js
