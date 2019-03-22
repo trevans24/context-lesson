@@ -288,7 +288,7 @@ import { ThemeContext } from '../Path/To/ThemeContext';
 
 export function ColorPane() {
   const { theme: { color, colors }, changeColor } = useContext(ThemeContext);
-  
+
   //vs object destructuring
 	let style = {
     background: color, // We can access data in the this.context object
@@ -296,19 +296,22 @@ export function ColorPane() {
     width: "200px"
   }
 
-	// Using the Context function
-	function setColor() {
-		// randomize the colors
-		let newColorIndex = Math.ceil(Math.random()*5);
-		changeColor(colors[newColorIndex])
-	}
+    // Using the Context function
+    function setColor() {
+    	// randomize the colors
+    	let newColorIndex = Math.ceil(Math.random()*5);
+    	changeColor(colors[newColorIndex])
+    }
 
   return (
+
     <div style={style}>
       <button onClick={setColor} >Change Color</button>
     </div>
+
   )
 }
+
 ```
 
 ___
