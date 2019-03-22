@@ -162,11 +162,11 @@ return (
 	// First you need the provider to supply the state
 	<ThemeProvider>
 	// Then you need the consumer to pass the state to the component needing the state
-      <ThemeConsumer>
+    <ThemeConsumer>
       {({ theme }) => (
-	      <ComponentUsingContext theme={theme} />
+        <ComponentUsingContext theme={theme} />
       )}
-      </ThemeConsumer>
+    </ThemeConsumer>
 	</ThemeProvider>
 )
 ```
@@ -183,20 +183,20 @@ import { ThemeConsumer } from './context/ThemeContext';
 
 return (
 	<ThemeConsumer>
-      {(context) => (
-	      <ColorPane theme={context.theme} changeColor={context.changeColor} />
-      )}
-    </ThemeConsumer>
+    {(context) => (
+      <ColorPane theme={context.theme} changeColor={context.changeColor} />
+    )}
+  </ThemeConsumer>
 )
 
 
 ... // OR if you want use object destructuring for easier access
 return (
 	<ThemeConsumer>
-      {({ theme: { color, colors }, changeColor }) => (
-	      <ColorPane color={color} colors={colors} changeColor={changeColor} />
-      )}
-    </ThemeConsumer>
+    {({ theme: { color, colors }, changeColor }) => (
+      <ColorPane color={color} colors={colors} changeColor={changeColor} />
+    )}
+  </ThemeConsumer>
 )
 ```
 
@@ -213,19 +213,19 @@ export default class ColorPane extends Component {
       width: "200px"
     }
 
-	//vs object destructuring
-	let style = {
+  	//vs object destructuring
+  	let style = {
       background: this.props.color, // We can access data in the this.context object
       height: "200px",
       width: "200px"
     }
 
-	// Using the Context function
-	setColor = () => {
-		// randomize the colors
-		let newColorIndex = Math.ceil(Math.random()*5);
-		this.props.changeColor(this.props.colors[newColorIndex])
-	}
+  	// Using the Context function
+  	setColor = () => {
+  		// randomize the colors
+  		let newColorIndex = Math.ceil(Math.random()*5);
+  		this.props.changeColor(this.props.colors[newColorIndex])
+  	}
 
     return (
       <div style={style}>
@@ -242,14 +242,12 @@ You can use data from multiple Contexts in the following manner
 ...
 <ThemeContext.Consumer>
   { ({color}) => (
-      <UserContext.Consumer>
-      { user => (
-          <MyComponent user={user} themeColor={color} />
-        )
-      }
-      </UserContext.Consumer>
-    )
-  }
+    <UserContext.Consumer>
+    { ({user}) => (
+      <MyComponent user={user} themeColor={color} />
+    )}
+    </UserContext.Consumer>
+  )}
 </ThemeContext.Consumer>
 
 ...
@@ -289,14 +287,14 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '../Path/To/ThemeContext';
 
 export function ColorPane() {
-	const { theme: { color, colors }, changeColor } = useContext(ThemeContext);
+  const { theme: { color, colors }, changeColor } = useContext(ThemeContext);
 
 	//vs object destructuring
 	let style = {
-      background: color, // We can access data in the this.context object
-      height: "200px",
-      width: "200px"
-    }
+    background: color, // We can access data in the this.context object
+    height: "200px",
+    width: "200px"
+  }
 
 	// Using the Context function
 	function setColor() {
@@ -305,12 +303,12 @@ export function ColorPane() {
 		changeColor(colors[newColorIndex])
 	}
 
-    return (
-      <div style={style}>
-	      <button onClick={setColor} >Change Color</button>
-      </div>
-    )
-  }
+  return (
+    <div style={style}>
+      <button onClick={setColor} >Change Color</button>
+    </div>
+  )
+
 }
 ```
 
