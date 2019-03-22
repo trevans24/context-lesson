@@ -269,9 +269,9 @@ import { ThemeConsumer } from './context/ThemeContext';
 return (
 	<ThemeConsumer>
 	{({ theme: { color, colors }, changeColor }) => (
-      <ColorPane color={color} colors={colors} changeColor={changeColor} />
-    )}
-    </ThemeConsumer>
+    <ColorPane color={color} colors={colors} changeColor={changeColor} />
+  )}
+  </ThemeConsumer>
 )
 ```
 This makes our components become a lot cleaner and easier to read
