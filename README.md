@@ -81,18 +81,18 @@ export const ThemeConsumer = ThemeContext.Consumer;
 // This also allows communication to context and update
 // state values throughout app
 export default ThemeProvider extends Component {
-	state = {
-		colors: ['black', 'blue', 'green', 'rebeccapurple', 'red', 'whitesmoke'],
-		color: ''
-	}
+  state = {
+    colors: ['black', 'blue', 'green', 'rebeccapurple', 'red', 'whitesmoke'],
+    color: ''
+  }
 
-	changeColor = (color) => {
+  changeColor = (color) => {
 		this.setState({
 			color
 		})
 	}
-
-	render() {
+  
+  render() {
 		return (
 			// When creating the Provider you must return a value
 			// this allows you to access the Context State
