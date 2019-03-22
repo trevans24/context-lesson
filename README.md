@@ -288,8 +288,8 @@ import { ThemeContext } from '../Path/To/ThemeContext';
 
 export function ColorPane() {
   const { theme: { color, colors }, changeColor } = useContext(ThemeContext);
-
-	//vs object destructuring
+  
+  //vs object destructuring
 	let style = {
     background: color, // We can access data in the this.context object
     height: "200px",
@@ -308,7 +308,6 @@ export function ColorPane() {
       <button onClick={setColor} >Change Color</button>
     </div>
   )
-
 }
 ```
 
