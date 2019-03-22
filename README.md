@@ -99,8 +99,8 @@ export default ThemeProvider extends Component {
       // this way the children can access the state
         {this.props.children}
       </ThemeContext.Provider>
-		)
-	}
+    )
+  }
 }
 ```
 
