@@ -155,15 +155,15 @@ import { ThemeProvider, ThemeConsumer } from './context/ThemeContext';
 ...
 
 return (
-	// First you need the provider to supply the state
-	<ThemeProvider>
-	// Then you need the consumer to pass the state to the component needing the state
+  // First you need the provider to supply the state
+  <ThemeProvider>
+  // Then you need the consumer to pass the state to the component needing the state
     <ThemeConsumer>
-      {({ theme }) => (
-        <ComponentUsingContext theme={theme} />
-      )}
+    {({ theme }) => (
+      <ComponentUsingContext theme={theme} />
+    )}
     </ThemeConsumer>
-	</ThemeProvider>
+  </ThemeProvider>
 )
 ```
 Imagine doing that in a number of other components in a large application..
@@ -178,7 +178,7 @@ import { ThemeConsumer } from './context/ThemeContext';
 ...
 
 return (
-	<ThemeConsumer>
+  <ThemeConsumer>
     {(context) => (
       <ColorPane theme={context.theme} changeColor={context.changeColor} />
     )}
@@ -188,7 +188,7 @@ return (
 
 ... // OR if you want use object destructuring for easier access
 return (
-	<ThemeConsumer>
+  <ThemeConsumer>
     {({ theme: { color, colors }, changeColor }) => (
       <ColorPane color={color} colors={colors} changeColor={changeColor} />
     )}
@@ -202,27 +202,27 @@ Passing the context state into the component using it now the state and function
 import React, { Component } from 'react';
 
 export default class ColorPane extends Component {
+  let style = {
+    background: this.props.theme.color, // We can access data in the this.context object
+    height: "200px",
+    width: "200px"
+  }
+
+  //vs object destructuring
+  let style = {
+    background: this.props.color, // We can access data in the this.context object
+    height: "200px",
+    width: "200px"
+  }
+
+  // Using the Context function
+  setColor = () => {
+    // randomize the colors
+    let newColorIndex = Math.ceil(Math.random()*5);
+    this.props.changeColor(this.props.colors[newColorIndex])
+  }
+  
   render() {
-    let style = {
-      background: this.props.theme.color, // We can access data in the this.context object
-      height: "200px",
-      width: "200px"
-    }
-
-  	//vs object destructuring
-  	let style = {
-      background: this.props.color, // We can access data in the this.context object
-      height: "200px",
-      width: "200px"
-    }
-
-  	// Using the Context function
-  	setColor = () => {
-  		// randomize the colors
-  		let newColorIndex = Math.ceil(Math.random()*5);
-  		this.props.changeColor(this.props.colors[newColorIndex])
-  	}
-
     return (
       <div style={style}>
 	      <button onClick={setColor} >Change Color</button>
