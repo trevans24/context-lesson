@@ -294,17 +294,15 @@ export function ColorPane() {
 
   // Using the Context function
   function setColor() {
-  	// randomize the colors
-  	let newColorIndex = Math.ceil(Math.random()*5);
-  	changeColor(colors[newColorIndex])
+    // randomize the colors
+    let newColorIndex = Math.ceil(Math.random()*5);
+    changeColor(colors[newColorIndex])
   }
 
   return (
-
     <div style={style}>
       <button onClick={setColor} >Change Color</button>
     </div>
-
   )
 }
 
